@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script>
+            function showTable(){
+                
+                var data = null;
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener("readystatechange", function(){
+                    
+                    if(xhr.readyState === 4){
+                        document.getElementById("result").innerHTML = xhr.responseText;
+                    }
+                });
+                
+                xhr.open("GET", "http://localhost:8080/playstore");
+                xhr.setRequestHeader("Content-Type", "playstore");
+                console.log(data);
+                xhr.send(data);
+    }
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick="showTable()" value="Click"><br><br>
+        <div id="result"></div>
+    </body>
+</html>
