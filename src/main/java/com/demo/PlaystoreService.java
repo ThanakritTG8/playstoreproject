@@ -17,6 +17,8 @@ public class PlaystoreService implements IPlaystoreService {
 
     Connection connection = null;
     Statement stm = null;
+    String user = "root";
+    String password = "my-secret-pw";
 
     public PlaystoreService() {
         playstore = new ArrayList();
@@ -29,7 +31,7 @@ public class PlaystoreService implements IPlaystoreService {
 
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost/projectsoa?user=root&&password=my-secret-pw";
-            connection = DriverManager.getConnection(url, "root", "my-secret-pw");
+            connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
             String sql = "select * from googleplaystore";
             ResultSet rs = stm.executeQuery(sql);
