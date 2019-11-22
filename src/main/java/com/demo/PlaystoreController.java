@@ -18,12 +18,16 @@ public class PlaystoreController {
     @Autowired
     private IPlaystoreService playstoreService;
 
-    @RequestMapping(value = "/playstore", method = RequestMethod.GET)
+    @RequestMapping(value = "/All", method = RequestMethod.GET)
     public List<Playstore> listplaystore() {
-
-        
 
         return playstoreService.findAll();
     }
 
+    
+    @RequestMapping(value = "/AppName", method = RequestMethod.GET)
+    public List<Playstore> appname(){
+        
+        return playstoreService.findByAppname();
+    }
 }
