@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class PlaystoreService implements IPlaystoreService {
 
     private final ArrayList<Playstore> playstore;
-    private final ArrayList<Playstore> play;
 
     Connection connection = null;
     Statement stm = null;
@@ -24,7 +23,6 @@ public class PlaystoreService implements IPlaystoreService {
 
     public PlaystoreService() {
         playstore = new ArrayList();
-        play = new ArrayList();
     }
 
     @Override
