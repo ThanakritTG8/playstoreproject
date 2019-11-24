@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class PlaystoreService implements IPlaystoreService {
 
     private final ArrayList<Playstore> playstore;
+    private final ArrayList<Playstore> play;
 
     Connection connection = null;
     Statement stm = null;
@@ -23,6 +24,7 @@ public class PlaystoreService implements IPlaystoreService {
 
     public PlaystoreService() {
         playstore = new ArrayList();
+        play = new ArrayList();
     }
 
     @Override
@@ -35,6 +37,7 @@ public class PlaystoreService implements IPlaystoreService {
             stm = connection.createStatement();
             String sql = "select * from googleplaystore";
             ResultSet rs = stm.executeQuery(sql);
+            playstore.clear();
 
             while (rs.next()) {
                 String App = rs.getString("App");
@@ -138,6 +141,7 @@ public class PlaystoreService implements IPlaystoreService {
             stm = connection.createStatement();
             String sql = "select * from googleplaystore";
             ResultSet rs = stm.executeQuery(sql);
+            playstore.clear();
 
             while (rs.next()) {
                 String App = rs.getString("App");
