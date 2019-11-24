@@ -36,6 +36,10 @@ public class Playstore {
         this.Type = Type;
         this.Last_Updated = Last_Updated;
     }
+    
+    public Playstore(String Category){
+    this.Category = Category;
+    }
 
     public String getApp() {
         return App;

@@ -79,7 +79,37 @@ public class PlaystoreService implements IPlaystoreService {
 
     @Override
     public ArrayList<Playstore> findByCategory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, password);
+            stm = connection.createStatement();
+            String sql = "select  distinct Category from googleplaystore";
+            ResultSet rs = stm.executeQuery(sql);
+            playstore.clear();
+
+            while (rs.next()) {
+                
+                String Category = rs.getString("Category");
+                
+
+                playstore.add(new Playstore(Category));
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(PlaystoreController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                connection.close();
+                stm.close();
+
+            } catch (Exception e) {
+
+            }
+        }
+
+        return playstore;
     }
 
     @Override
@@ -134,7 +164,6 @@ public class PlaystoreService implements IPlaystoreService {
         try {
 
 //            Class.forName("com.mysql.jdbc.Driver");
-            
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
             String sql = "select * from googleplaystore";
@@ -159,7 +188,7 @@ public class PlaystoreService implements IPlaystoreService {
                 if (App.equals(ID)) {
                     playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
 
-                }else{
+                } else {
                 }
 
             }
