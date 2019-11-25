@@ -79,6 +79,7 @@ public class PlaystoreService implements IPlaystoreService {
 
     @Override
     public ArrayList<Playstore> findByCategory() {
+        
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -92,7 +93,6 @@ public class PlaystoreService implements IPlaystoreService {
                 
                 String Category = rs.getString("Category");
                 
-
                 playstore.add(new Playstore(Category));
 
             }
