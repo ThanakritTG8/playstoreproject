@@ -24,35 +24,40 @@ public class PlaystoreController {
 
         return playstoreService.findAll();
     }
-    
+
     @RequestMapping(value = "/all/{id}", method = RequestMethod.GET)
-    public List<Playstore> listplay(@PathVariable String id){
-    
+    public List<Playstore> listplay(@PathVariable String id) {
+
         return playstoreService.findAll(id);
     }
 
-    
-    @RequestMapping(value = "/appName", method = RequestMethod.GET)
-    public List<Playstore> appname(){
-        
-        return playstoreService.findByAppname();
-    }
-    
     @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public List<Playstore> category(){
-        
+    public List<Playstore> category() {
+
         return playstoreService.findByCategory();
     }
     
-    @RequestMapping(value = "/rating/{rate}", method = RequestMethod.GET)
-    public List<Playstore> rating(@PathVariable double rate){
-        
-        return playstoreService.findByRating(rate);
-    }
+    @RequestMapping(value = "/category/{name}", method = RequestMethod.GET)
+    public List<Playstore> categoryall(@PathVariable String name){
     
-    @RequestMapping(value = "/type", method = RequestMethod.GET)
-    public List<Playstore> type(){
-        
-        return playstoreService.findByType();
+        return playstoreService.findAll(name);
     }
+
+//    @RequestMapping(value = "/appName", method = RequestMethod.GET)
+//    public List<Playstore> appname() {
+//
+//        return playstoreService.findByAppname();
+//    }
+//
+//    @RequestMapping(value = "/rating/{rate}", method = RequestMethod.GET)
+//    public List<Playstore> rating(@PathVariable double rate) {
+//
+//        return playstoreService.findByRating(rate);
+//    }
+//
+//    @RequestMapping(value = "/type", method = RequestMethod.GET)
+//    public List<Playstore> type() {
+//
+//        return playstoreService.findByType();
+//    }
 }

@@ -113,8 +113,8 @@ public class PlaystoreService implements IPlaystoreService {
     }
 
     @Override
-    public ArrayList<Playstore> findByRating(double rate) {
-        
+    public ArrayList<Playstore> findByRating(double rate) {//  ยังแก้ไม่ได้ที
+
         double Rate = rate;
         Rate = 0;
         try {
@@ -233,6 +233,9 @@ public class PlaystoreService implements IPlaystoreService {
                 String Android_Ver = rs.getString("Android Ver");
 
                 if (App.equals(ID)) {
+                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+
+                } else if (Category.equals(ID)) {
                     playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
 
                 } else {
