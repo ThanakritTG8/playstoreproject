@@ -13,7 +13,7 @@ public interface IPlaystoreService {
     
     public ArrayList<Playstore> findByCategory();
     
-    public ArrayList<Playstore> findByRating();
+    public ArrayList<Playstore> findByRating(double rate);
     
     public ArrayList<Playstore> findByType();
     

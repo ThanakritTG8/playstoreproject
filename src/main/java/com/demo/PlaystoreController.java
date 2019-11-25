@@ -44,10 +44,10 @@ public class PlaystoreController {
         return playstoreService.findByCategory();
     }
     
-    @RequestMapping(value = "/rating", method = RequestMethod.GET)
-    public List<Playstore> rating(){
+    @RequestMapping(value = "/rating/{rate}", method = RequestMethod.GET)
+    public List<Playstore> rating(@PathVariable double rate){
         
-        return playstoreService.findByRating();
+        return playstoreService.findByRating(rate);
     }
     
     @RequestMapping(value = "/type", method = RequestMethod.GET)

@@ -40,17 +40,17 @@ public class PlaystoreService implements IPlaystoreService {
             while (rs.next()) {
                 String App = rs.getString("App");
                 String Category = rs.getString("Category");
-                String Rating = rs.getString("Rating");
-                String Reviews = rs.getString("Reviews");
+                double Rating = rs.getDouble("Rating");
+                int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
                 String Installs = rs.getString("Installs");
                 String Type = rs.getString("Type");
-                String Price = rs.getString("Price");
-                String Content_Rating = rs.getString("Content_Rating");
+                int Price = rs.getInt("Price");
+                String Content_Rating = rs.getString("Content Rating");
                 String Genres = rs.getString("Genres");
-                String Last_Updated = rs.getString("Last_Updated");
-                String Current_Ver = rs.getString("Current_Ver");
-                String Android_Ver = rs.getString("Android_Ver");
+                String Last_Updated = rs.getString("Last Updated");
+                String Current_Ver = rs.getString("Current Ver");
+                String Android_Ver = rs.getString("Android Ver");
 
                 playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
 
@@ -79,7 +79,7 @@ public class PlaystoreService implements IPlaystoreService {
 
     @Override
     public ArrayList<Playstore> findByCategory() {
-        
+
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -90,9 +90,9 @@ public class PlaystoreService implements IPlaystoreService {
             playstore.clear();
 
             while (rs.next()) {
-                
+
                 String Category = rs.getString("Category");
-                
+
                 playstore.add(new Playstore(Category));
 
             }
@@ -113,8 +113,55 @@ public class PlaystoreService implements IPlaystoreService {
     }
 
     @Override
-    public ArrayList<Playstore> findByRating() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Playstore> findByRating(double rate) {
+        
+        double Rate = rate;
+        Rate = 0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, password);
+            stm = connection.createStatement();
+            String sql = "select * from googleplaystore";
+            ResultSet rs = stm.executeQuery(sql);
+            playstore.clear();
+
+            while (rs.next()) {
+                String App = rs.getString("App");
+                String Category = rs.getString("Category");
+                double Rating = rs.getDouble("Rating");
+                int Reviews = rs.getInt("Reviews");
+                String Size = rs.getString("Size");
+                String Installs = rs.getString("Installs");
+                String Type = rs.getString("Type");
+                int Price = rs.getInt("Price");
+                String Content_Rating = rs.getString("Content Rating");
+                String Genres = rs.getString("Genres");
+                String Last_Updated = rs.getString("Last Updated");
+                String Current_Ver = rs.getString("Current Ver");
+                String Android_Ver = rs.getString("Android Ver");
+
+                if (Rating == Rate) {
+                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+
+                } else {
+                }
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(PlaystoreController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                connection.close();
+                stm.close();
+
+            } catch (Exception e) {
+
+            }
+        }
+
+        return playstore;
+
     }
 
     @Override
@@ -173,17 +220,17 @@ public class PlaystoreService implements IPlaystoreService {
             while (rs.next()) {
                 String App = rs.getString("App");
                 String Category = rs.getString("Category");
-                String Rating = rs.getString("Rating");
-                String Reviews = rs.getString("Reviews");
+                double Rating = rs.getDouble("Rating");
+                int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
                 String Installs = rs.getString("Installs");
                 String Type = rs.getString("Type");
-                String Price = rs.getString("Price");
-                String Content_Rating = rs.getString("Content_Rating");
+                int Price = rs.getInt("Price");
+                String Content_Rating = rs.getString("Content Rating");
                 String Genres = rs.getString("Genres");
-                String Last_Updated = rs.getString("Last_Updated");
-                String Current_Ver = rs.getString("Current_Ver");
-                String Android_Ver = rs.getString("Android_Ver");
+                String Last_Updated = rs.getString("Last Updated");
+                String Current_Ver = rs.getString("Current Ver");
+                String Android_Ver = rs.getString("Android Ver");
 
                 if (App.equals(ID)) {
                     playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
