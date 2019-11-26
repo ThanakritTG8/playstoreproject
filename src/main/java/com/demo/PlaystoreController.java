@@ -43,6 +43,12 @@ public class PlaystoreController {
         return playstoreService.findAll(name);
     }
     
+    @RequestMapping(value = "/app/type/{type}", method = RequestMethod.GET)// /app/type/Free && /app/type/Paid
+    public List<Playstore> appall(@PathVariable String type){
+    
+        return playstoreService.findAll(type);
+    }
+    
 //    @RequestMapping(value = "/all/free")
 
 //    @RequestMapping(value = "/appName", method = RequestMethod.GET)

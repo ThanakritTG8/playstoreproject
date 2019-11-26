@@ -116,7 +116,7 @@ public class PlaystoreService implements IPlaystoreService {
     public ArrayList<Playstore> findByRating(String rate) {//  ยังแก้ไม่ได้ที
 
         String Rate = rate;
-       
+
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -216,12 +216,11 @@ public class PlaystoreService implements IPlaystoreService {
     }
 
     @Override
-    public ArrayList<Playstore> findAll(String id
-    ) {
+    public ArrayList<Playstore> findAll(String id) {
         String ID = id;
         try {
 
-//            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
             String sql = "select * from googleplaystore";
@@ -250,7 +249,15 @@ public class PlaystoreService implements IPlaystoreService {
                     playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
 
                 } else if (Type.equals(ID)) {
-                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+                        playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+
+//                    if (ID.equals("free")) {
+//                        playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+//
+//                    } else if (ID.equals("paid")) {
+//                        playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+//
+//                    }else{}
 
                 } else {
                 }
