@@ -52,7 +52,7 @@ public class PlaystoreController {
 //    }
 //
 //    @RequestMapping(value = "/rating/{rate}", method = RequestMethod.GET)
-//    public List<Playstore> rating(@PathVariable double rate) {
+//    public List<Playstore> rating(@PathVariable String rate) {
 //
 //        return playstoreService.findByRating(rate);
 //    }

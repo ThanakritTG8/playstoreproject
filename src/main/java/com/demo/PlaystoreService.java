@@ -113,10 +113,10 @@ public class PlaystoreService implements IPlaystoreService {
     }
 
     @Override
-    public ArrayList<Playstore> findByRating(double rate) {//  ยังแก้ไม่ได้ที
+    public ArrayList<Playstore> findByRating(String rate) {//  ยังแก้ไม่ได้ที
 
-        double Rate = rate;
-        Rate = 0;
+        String Rate = rate;
+       
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -141,11 +141,11 @@ public class PlaystoreService implements IPlaystoreService {
                 String Current_Ver = rs.getString("Current Ver");
                 String Android_Ver = rs.getString("Android Ver");
 
-                if (Rating == Rate) {
-                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
-
-                } else {
-                }
+//                if (Rating.equals(Rate)) {
+//                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+//
+//                } else {
+//                }
             }
 
         } catch (Exception ex) {
@@ -166,7 +166,17 @@ public class PlaystoreService implements IPlaystoreService {
 
     @Override
     public ArrayList<Playstore> findByType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost/project?user=root&&password=my-secret-pw";
+            connection = DriverManager.getConnection(url, user, password);
+            String sql = "Select * from googleplaystore where type ='' ";
+
+        } catch (Exception ex) {
+            Logger.getLogger(PlaystoreController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return playstore;
     }
 
     @Override
@@ -206,7 +216,8 @@ public class PlaystoreService implements IPlaystoreService {
     }
 
     @Override
-    public ArrayList<Playstore> findAll(String id) {
+    public ArrayList<Playstore> findAll(String id
+    ) {
         String ID = id;
         try {
 
