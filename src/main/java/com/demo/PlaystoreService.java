@@ -238,6 +238,9 @@ public class PlaystoreService implements IPlaystoreService {
                 } else if (Category.equals(ID)) {
                     playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
 
+                } else if (Type.equals(ID)) {
+                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+
                 } else {
                 }
 

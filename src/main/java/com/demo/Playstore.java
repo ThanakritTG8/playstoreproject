@@ -10,7 +10,7 @@ public class Playstore {
     private String Size;
     private String Installs;
     private String Type;
-    private int Price;
+    private double Price;
     private String Content_Rating;
     private String Genres;
     private String Last_Updated;
@@ -18,7 +18,7 @@ public class Playstore {
     private String Android_Ver;
     
     public Playstore(String App, String Category, double Rating, int Reviews,
-            String Size, String Installs, String Type, int Price,
+            String Size, String Installs, String Type, double Price,
             String Content_Rating, String Genres, String Last_Updated,
             String Current_Ver, String Android_Ver){
     
@@ -97,11 +97,11 @@ public class Playstore {
         this.Type = Type;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return Price;
     }
 
-    public void setPrice(int Price) {
+    public void setPrice(double Price) {
         this.Price = Price;
     }
 

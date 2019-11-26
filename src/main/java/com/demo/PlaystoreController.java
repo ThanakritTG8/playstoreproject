@@ -42,6 +42,8 @@ public class PlaystoreController {
     
         return playstoreService.findAll(name);
     }
+    
+//    @RequestMapping(value = "/all/free")
 
 //    @RequestMapping(value = "/appName", method = RequestMethod.GET)
 //    public List<Playstore> appname() {
