@@ -1,14 +1,13 @@
 package com.demo;
 
-
 public class Playstore {
-    
+
     private String App;
     private String Category;
     private double Rating;
-    private int Reviews ;
+    private int Reviews;
     private String Size;
-    private String Installs;
+    private int Installs;
     private String Type;
     private double Price;
     private String Content_Rating;
@@ -16,12 +15,12 @@ public class Playstore {
     private String Last_Updated;
     private String Current_Ver;
     private String Android_Ver;
-    
+
     public Playstore(String App, String Category, double Rating, int Reviews,
-            String Size, String Installs, String Type, double Price,
+            String Size, int Installs, String Type, double Price,
             String Content_Rating, String Genres, String Last_Updated,
-            String Current_Ver, String Android_Ver){
-    
+            String Current_Ver, String Android_Ver) {
+
         this.App = App;
         this.Category = Category;
         this.Rating = Rating;
@@ -36,9 +35,9 @@ public class Playstore {
         this.Type = Type;
         this.Last_Updated = Last_Updated;
     }
-    
-    public Playstore(String Category){
-    this.Category = Category;
+
+    public Playstore(String Category) {
+        this.Category = Category;
     }
 
     public String getApp() {
@@ -81,11 +80,11 @@ public class Playstore {
         this.Size = Size;
     }
 
-    public String getInstalls() {
+    public int getInstalls() {
         return Installs;
     }
 
-    public void setInstalls(String Installs) {
+    public void setInstalls(int Installs) {
         this.Installs = Installs;
     }
 
@@ -144,5 +143,5 @@ public class Playstore {
     public void setAndroid_Ver(String Android_Ver) {
         this.Android_Ver = Android_Ver;
     }
-    
+
 }

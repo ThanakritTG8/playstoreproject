@@ -33,7 +33,7 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore";
+            String sql = "select distinct * from googleplaystore";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
 
@@ -43,7 +43,7 @@ public class PlaystoreService implements IPlaystoreService {
                 double Rating = rs.getDouble("Rating");
                 int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
-                String Installs = rs.getString("Installs");
+                int Installs = rs.getInt("Installs");
                 String Type = rs.getString("Type");
                 int Price = rs.getInt("Price");
                 String Content_Rating = rs.getString("Content Rating");
@@ -132,7 +132,7 @@ public class PlaystoreService implements IPlaystoreService {
                 double Rating = rs.getDouble("Rating");
                 int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
-                String Installs = rs.getString("Installs");
+                int Installs = rs.getInt("Installs");
                 String Type = rs.getString("Type");
                 int Price = rs.getInt("Price");
                 String Content_Rating = rs.getString("Content Rating");
@@ -188,9 +188,9 @@ public class PlaystoreService implements IPlaystoreService {
             String url = "jdbc:mysql://localhost/projectsoa?user=root&&password=my-secret-pw";
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore";
+            String sql = "select * from googleplaystore ";
             ResultSet rs = stm.executeQuery(sql);
-
+            
         } catch (Exception ex) {
             Logger.getLogger(PlaystoreController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -223,7 +223,7 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore";
+            String sql = "select distinct * from googleplaystore";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
 
@@ -233,7 +233,7 @@ public class PlaystoreService implements IPlaystoreService {
                 double Rating = rs.getDouble("Rating");
                 int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
-                String Installs = rs.getString("Installs");
+                int Installs = rs.getInt("Installs");
                 String Type = rs.getString("Type");
                 int Price = rs.getInt("Price");
                 String Content_Rating = rs.getString("Content Rating");
@@ -251,13 +251,7 @@ public class PlaystoreService implements IPlaystoreService {
                 } else if (Type.equals(ID)) {
                     playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
 
-//                    if (ID.equals("free")) {
-//                        playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
-//
-//                    } else if (ID.equals("paid")) {
-//                        playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
-//
-//                    }else{}
+
                 } else {
                 }
 
@@ -285,7 +279,7 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore where type = 'free' ";
+            String sql = "select distinct * from googleplaystore where type = 'free' ";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
 
@@ -295,7 +289,7 @@ public class PlaystoreService implements IPlaystoreService {
                 double Rating = rs.getDouble("Rating");
                 int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
-                String Installs = rs.getString("Installs");
+                int Installs = rs.getInt("Installs");
                 String Type = rs.getString("Type");
                 int Price = rs.getInt("Price");
                 String Content_Rating = rs.getString("Content Rating");
@@ -331,7 +325,7 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore where type = 'paid' ";
+            String sql = "select distinct * from googleplaystore where type = 'paid' ";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
 
@@ -341,7 +335,7 @@ public class PlaystoreService implements IPlaystoreService {
                 double Rating = rs.getDouble("Rating");
                 int Reviews = rs.getInt("Reviews");
                 String Size = rs.getString("Size");
-                String Installs = rs.getString("Installs");
+                int Installs = rs.getInt("Installs");
                 String Type = rs.getString("Type");
                 int Price = rs.getInt("Price");
                 String Content_Rating = rs.getString("Content Rating");
