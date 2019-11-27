@@ -43,29 +43,17 @@ public class PlaystoreController {
         return playstoreService.findAll(name);
     }
     
-    @RequestMapping(value = "/app/type/{type}", method = RequestMethod.GET)// /app/type/Free && /app/type/Paid
-    public List<Playstore> appall(@PathVariable String type){
+    @RequestMapping(value = "/all/paid", method = RequestMethod.GET)
+    public List<Playstore> allPaid(){
     
-        return playstoreService.findAll(type);
+        return playstoreService.findAllPaid();
     }
     
-//    @RequestMapping(value = "/all/free")
+    @RequestMapping(value = "/all/free", method = RequestMethod.GET)
+    public List<Playstore> allFree(){
+    
+        return playstoreService.findAllFree();
+    }
+    
 
-//    @RequestMapping(value = "/appName", method = RequestMethod.GET)
-//    public List<Playstore> appname() {
-//
-//        return playstoreService.findByAppname();
-//    }
-//
-//    @RequestMapping(value = "/rating/{rate}", method = RequestMethod.GET)
-//    public List<Playstore> rating(@PathVariable String rate) {
-//
-//        return playstoreService.findByRating(rate);
-//    }
-//
-//    @RequestMapping(value = "/type", method = RequestMethod.GET)
-//    public List<Playstore> type() {
-//
-//        return playstoreService.findByType();
-//    }
 }

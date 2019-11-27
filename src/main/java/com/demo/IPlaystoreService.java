@@ -9,6 +9,10 @@ public interface IPlaystoreService {
     
     public ArrayList<Playstore> findAll(String id);
     
+    public ArrayList<Playstore> findAllFree();
+    
+    public ArrayList<Playstore> findAllPaid();
+    
     public ArrayList<Playstore> findByAppname();
     
     public ArrayList<Playstore> findByCategory();
