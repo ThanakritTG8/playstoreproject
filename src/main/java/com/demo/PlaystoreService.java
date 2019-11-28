@@ -1,6 +1,5 @@
 package com.demo;
 
-
 import java.sql.*;
 import java.sql.DriverManager;
 import java.util.ArrayList;
@@ -510,6 +509,58 @@ public class PlaystoreService implements IPlaystoreService {
 
         return playstore;
 
+    }
+
+    @Override
+    public ArrayList<Playstore> findByTop10Free(String app) {
+        
+        String freeApp = app;
+        
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, password);
+            stm = connection.createStatement();
+            String sql = "select distinct * from googleplaystore where type = 'paid' ";
+            ResultSet rs = stm.executeQuery(sql);
+            playstore.clear();
+
+            while (rs.next()) {
+                String App = rs.getString("App");
+                String Category = rs.getString("Category");
+                double Rating = rs.getDouble("Rating");
+                int Reviews = rs.getInt("Reviews");
+                String Size = rs.getString("Size");
+                int Installs = rs.getInt("Installs");
+                String Type = rs.getString("Type");
+                int Price = rs.getInt("Price");
+                String Content_Rating = rs.getString("Content Rating");
+                String Genres = rs.getString("Genres");
+                String Last_Updated = rs.getString("Last Updated");
+                String Current_Ver = rs.getString("Current Ver");
+                String Android_Ver = rs.getString("Android Ver");
+                
+                if(App.equals(freeApp)){
+                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
+
+                }
+
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(PlaystoreController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                connection.close();
+                stm.close();
+            } catch (Exception e) {
+
+            }
+        }
+
+        return playstore;
     }
 
 }
