@@ -16,6 +16,12 @@ public class Playstore {
     private String Current_Ver;
     private String Android_Ver;
 
+    private String app;
+    private String Translate_Review;
+    private String Sentiment;
+    private double Sentiment_Polarity;
+    private double Sentiment_Subjectivity;
+
     public Playstore(String App, String Category, double Rating, int Reviews,
             String Size, int Installs, String Type, double Price,
             String Content_Rating, String Genres, String Last_Updated,
@@ -36,6 +42,29 @@ public class Playstore {
         this.Last_Updated = Last_Updated;
     }
 
+    public Playstore(String App, String Category, double Rating, int Reviews, String Size, int Installs,
+            String Type, double Price, String Content_Rating, String Genres, String Last_Updated, String Current_Ver, String Android_Ver,
+            String app, String Translate_Review, String Sentiment, double Sentiment_Polarity, double Sentiment_Subjectivity) {
+        this.App = App;
+        this.Category = Category;
+        this.Rating = Rating;
+        this.Reviews = Reviews;
+        this.Size = Size;
+        this.Installs = Installs;
+        this.Type = Type;
+        this.Price = Price;
+        this.Content_Rating = Content_Rating;
+        this.Genres = Genres;
+        this.Last_Updated = Last_Updated;
+        this.Current_Ver = Current_Ver;
+        this.Android_Ver = Android_Ver;
+        this.app = app;
+        this.Translate_Review = Translate_Review;
+        this.Sentiment = Sentiment;
+        this.Sentiment_Polarity = Sentiment_Polarity;
+        this.Sentiment_Subjectivity = Sentiment_Subjectivity;
+    }
+
     public Playstore(String Category) {
         this.Category = Category;
     }
@@ -46,6 +75,14 @@ public class Playstore {
 
     public void setApp(String App) {
         this.App = App;
+    }
+
+    public String getapp() {
+        return app;
+    }
+
+    public void setapp() {
+        this.app = app;
     }
 
     public String getCategory() {
@@ -142,6 +179,38 @@ public class Playstore {
 
     public void setAndroid_Ver(String Android_Ver) {
         this.Android_Ver = Android_Ver;
+    }
+
+    public String getTranslate_Review() {
+        return Translate_Review;
+    }
+
+    public void setTranslate_Review(String Translate_Review) {
+        this.Translate_Review = Translate_Review;
+    }
+
+    public String getSentiment() {
+        return Sentiment;
+    }
+
+    public void setSentiment(String Sentiment) {
+        this.Sentiment = Sentiment;
+    }
+
+    public double getSentiment_Polarity() {
+        return Sentiment_Polarity;
+    }
+
+    public void setSentiment_Polarity(double Sentiment_Polarity) {
+        this.Sentiment_Polarity = Sentiment_Polarity;
+    }
+
+    public double getSentiment_Subjectivity() {
+        return Sentiment_Subjectivity;
+    }
+
+    public void setSentiment_Subjectivity(double Sentiment_Subjectivity) {
+        this.Sentiment_Subjectivity = Sentiment_Subjectivity;
     }
 
 }

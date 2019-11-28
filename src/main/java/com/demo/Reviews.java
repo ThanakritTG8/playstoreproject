@@ -5,10 +5,10 @@ public class Reviews {
 
 private String Translate_Reviews;
 private String Sentiment;
-private String Sentiment_Polarity;
-private String Sentiment_Subjectivity;
+private double Sentiment_Polarity;
+private double Sentiment_Subjectivity;
 
-    public Reviews(String Translate_Reviews, String Sentiment, String Sentiment_Polarity, String Sentiment_Subjectivity) {
+    public Reviews(String Translate_Reviews, String Sentiment, double Sentiment_Polarity, double Sentiment_Subjectivity) {
         this.Translate_Reviews = Translate_Reviews;
         this.Sentiment = Sentiment;
         this.Sentiment_Polarity = Sentiment_Polarity;
@@ -31,19 +31,19 @@ private String Sentiment_Subjectivity;
         this.Sentiment = Sentiment;
     }
 
-    public String getSentiment_Polarity() {
+    public double getSentiment_Polarity() {
         return Sentiment_Polarity;
     }
 
-    public void setSentiment_Polarity(String Sentiment_Polarity) {
+    public void setSentiment_Polarity(double Sentiment_Polarity) {
         this.Sentiment_Polarity = Sentiment_Polarity;
     }
 
-    public String getSentiment_Subjectivity() {
+    public double getSentiment_Subjectivity() {
         return Sentiment_Subjectivity;
     }
 
-    public void setSentiment_Subjectivity(String Sentiment_Subjectivity) {
+    public void setSentiment_Subjectivity(double Sentiment_Subjectivity) {
         this.Sentiment_Subjectivity = Sentiment_Subjectivity;
     }
     

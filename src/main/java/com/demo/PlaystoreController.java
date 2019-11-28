@@ -2,6 +2,7 @@ package com.demo;
 
 import java.sql.*;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
@@ -36,24 +37,47 @@ public class PlaystoreController {
 
         return playstoreService.findByCategory();
     }
-    
+
     @RequestMapping(value = "/category/{name}", method = RequestMethod.GET)
-    public List<Playstore> categoryall(@PathVariable String name){
-    
+    public List<Playstore> categoryall(@PathVariable String name) {
+
         return playstoreService.findAll(name);
     }
-    
+
     @RequestMapping(value = "/all/paid", method = RequestMethod.GET)
-    public List<Playstore> allPaid(){
-    
+    public List<Playstore> allPaid() {
+
         return playstoreService.findAllPaid();
     }
-    
+
     @RequestMapping(value = "/all/free", method = RequestMethod.GET)
-    public List<Playstore> allFree(){
-    
+    public List<Playstore> allFree() {
+
         return playstoreService.findAllFree();
     }
-    
 
+    @RequestMapping(value = "/top10/free", method = RequestMethod.GET)
+    public List<Playstore> installfree() {
+
+        return playstoreService.findByInstallsFree();
+    }
+
+    @RequestMapping(value = "/top10/paid", method = RequestMethod.GET)
+    public List<Playstore> installpaid() {
+
+        return playstoreService.findByInstallsPaid();
+    }
+
+    @RequestMapping(value = "/reviews/top10", method = RequestMethod.GET)
+    public List<Playstore> topreviews() {
+
+        return playstoreService.find10Reviews();
+    }
+    
+    @RequestMapping(value = "/app/{name}", method = RequestMethod.GET)
+    public ArrayList<Playstore> app(@PathVariable String name) {
+
+        return playstoreService.findByAppname(name);
+    }
+    
 }
