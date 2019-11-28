@@ -324,7 +324,7 @@ public class PlaystoreService implements IPlaystoreService {
             String url = "jdbc:mysql://localhost/projectsoa?user=root&&password=my-secret-pw";
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore order by Reviews desc limit 10  ";
+            String sql = "select distinct * from googleplaystore order by Reviews desc limit 10  ";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
 
