@@ -74,4 +74,10 @@ public class PlaystoreController {
         return playstoreService.findByAppname(name);
     }
     
+    @RequestMapping(value = "/top10/free/{name}", method = RequestMethod.GET)
+    public ArrayList<Playstore> freetenname(@PathVariable String name){
+    
+        return playstoreService.findByTop10Free(name);
+    }
+    
 }
