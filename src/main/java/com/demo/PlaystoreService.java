@@ -521,7 +521,7 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select distinct * from googleplaystore where type = 'paid' ";
+            String sql = "select * from googleplaystore where Type = 'free' order by Installs desc limit 10  ";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
 
