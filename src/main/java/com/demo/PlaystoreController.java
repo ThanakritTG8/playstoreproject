@@ -80,4 +80,33 @@ public class PlaystoreController {
         return playstoreService.findByTop10Free(name);
     }
     
+    @RequestMapping(value = "/rating/5", method = RequestMethod.GET)
+    public List<Playstore> rating5() {
+
+        return playstoreService.findByRating5();
+    }
+    
+    @RequestMapping(value = "/rating/4", method = RequestMethod.GET)
+    public List<Playstore> rating4() {
+
+        return playstoreService.findByRating4();
+    }
+    
+    @RequestMapping(value = "/rating/3", method = RequestMethod.GET)
+    public List<Playstore> rating3() {
+
+        return playstoreService.findByRating3();
+    }
+    
+    @RequestMapping(value = "/rating/2", method = RequestMethod.GET)
+    public List<Playstore> rating2() {
+
+        return playstoreService.findByRating2();
+    }
+    
+    @RequestMapping(value = "/rating/1", method = RequestMethod.GET)
+    public List<Playstore> rating1() {
+
+        return playstoreService.findByRating1();
+    }
 }

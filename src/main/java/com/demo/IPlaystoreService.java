@@ -27,4 +27,14 @@ public interface IPlaystoreService {
     public ArrayList<Playstore> findAllReviews();//ไม่เอาแล้ววววววว
     
     public ArrayList<Playstore> find10Reviews();
+    
+    public ArrayList<Playstore> findByRating5();
+    
+    public ArrayList<Playstore> findByRating4();
+    
+    public ArrayList<Playstore> findByRating3();
+    
+    public ArrayList<Playstore> findByRating2();
+    
+    public ArrayList<Playstore> findByRating1();
 }
