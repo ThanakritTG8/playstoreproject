@@ -1,21 +1,17 @@
 package com.demo;
 
-import com.demo.Playstore;
+
 import java.sql.*;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class PlaystoreService implements IPlaystoreService {
 
     private final ArrayList<Playstore> playstore;
-    private final ArrayList<Reviews> reviews;
 
     Connection connection = null;
     Statement stm = null;
@@ -25,7 +21,6 @@ public class PlaystoreService implements IPlaystoreService {
 
     public PlaystoreService() {
         playstore = new ArrayList();
-        reviews = new ArrayList();
 
     }
 
@@ -79,57 +74,57 @@ public class PlaystoreService implements IPlaystoreService {
     @Override
     public ArrayList<Playstore> findByAppname(String name) {
         String Name = name;
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url, user, password);
-            stm = connection.createStatement();
-            String sql = "select * from googleplaystore join googleplaystore_user_reviews\n"
-                    + "ON googleplaystore.App = googleplaystore_user_reviews.App;";
-            ResultSet rs = stm.executeQuery(sql);
-            playstore.clear();
-
-            while (rs.next()) {
-                String App = rs.getString("App");
-                String Category = rs.getString("Category");
-                double Rating = rs.getDouble("Rating");
-                int Reviews = rs.getInt("Reviews");
-                String Size = rs.getString("Size");
-                int Installs = rs.getInt("Installs");
-                String Type = rs.getString("Type");
-                int Price = rs.getInt("Price");
-                String Content_Rating = rs.getString("Content Rating");
-                String Genres = rs.getString("Genres");
-                String Last_Updated = rs.getString("Last Updated");
-                String Current_Ver = rs.getString("Current Ver");
-                String Android_Ver = rs.getString("Android Ver");
-
-                String app = rs.getString("App");
-                String Translate_Review = rs.getString("Translated_Review");
-                String Sentiment = rs.getString("Sentiment");
-                double Sentiment_Polarity = rs.getDouble("Sentiment_Polarity");
-                double Sentiment_Subjectivity = rs.getDouble("Sentiment_Subjectivity");
-
-                if (App.equals(Name) && app.equals(Name)) {
-                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver,
-                    app, Translate_Review, Sentiment, Sentiment_Polarity, Sentiment_Subjectivity));
-
-                }
-
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(PlaystoreController.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                connection.close();
-                stm.close();
-
-            } catch (Exception e) {
-
-            }
-        }
+//        try {
+//
+//            Class.forName("com.mysql.jdbc.Driver");
+//            connection = DriverManager.getConnection(url, user, password);
+//            stm = connection.createStatement();
+//            String sql = "select * from googleplaystore join googleplaystore_user_reviews\n"
+//                    + "ON googleplaystore.App = googleplaystore_user_reviews.App;";
+//            ResultSet rs = stm.executeQuery(sql);
+//            playstore.clear();
+//
+//            while (rs.next()) {
+//                String App = rs.getString("App");
+//                String Category = rs.getString("Category");
+//                double Rating = rs.getDouble("Rating");
+//                int Reviews = rs.getInt("Reviews");
+//                String Size = rs.getString("Size");
+//                int Installs = rs.getInt("Installs");
+//                String Type = rs.getString("Type");
+//                int Price = rs.getInt("Price");
+//                String Content_Rating = rs.getString("Content Rating");
+//                String Genres = rs.getString("Genres");
+//                String Last_Updated = rs.getString("Last Updated");
+//                String Current_Ver = rs.getString("Current Ver");
+//                String Android_Ver = rs.getString("Android Ver");
+//
+//                String app = rs.getString("App");
+//                String Translate_Review = rs.getString("Translated_Review");
+//                String Sentiment = rs.getString("Sentiment");
+//                double Sentiment_Polarity = rs.getDouble("Sentiment_Polarity");
+//                double Sentiment_Subjectivity = rs.getDouble("Sentiment_Subjectivity");
+//
+//                if (App.equals(Name) && app.equals(Name)) {
+//                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver,
+//                    app, Translate_Review, Sentiment, Sentiment_Polarity, Sentiment_Subjectivity));
+//
+//                }
+//
+//            }
+//
+//        } catch (Exception ex) {
+//            Logger.getLogger(PlaystoreController.class
+//                    .getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                connection.close();
+//                stm.close();
+//
+//            } catch (Exception e) {
+//
+//            }
+//        }
 
         return playstore;
 

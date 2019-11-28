@@ -1,7 +1,5 @@
 package com.demo;
 
-import com.demo.Playstore;
-import com.demo.Reviews;
 import java.util.ArrayList;
 
 public interface IPlaystoreService {
