@@ -22,10 +22,6 @@ public interface IPlaystoreService {
     
     public ArrayList<Playstore> findByTop10Free(String app);
     
-    public ArrayList<Playstore> findByRating(String rate);//ยังไม่เสร็จจจจจ
-    
-    public ArrayList<Playstore> findAllReviews();//ไม่เอาแล้ววววววว
-    
     public ArrayList<Playstore> find10Reviews();
     
     public ArrayList<Playstore> findByRating5();

@@ -159,59 +159,6 @@ public class PlaystoreService implements IPlaystoreService {
     }
 
     @Override
-    public ArrayList<Playstore> findByRating(String rate) {//  ยังแก้ไม่ได้ที
-
-        String Rate = rate;
-
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url, user, password);
-            stm = connection.createStatement();
-            String sql = "select * from googleplaystore";
-            ResultSet rs = stm.executeQuery(sql);
-            playstore.clear();
-
-            while (rs.next()) {
-                String App = rs.getString("App");
-                String Category = rs.getString("Category");
-                double Rating = rs.getDouble("Rating");
-                int Reviews = rs.getInt("Reviews");
-                String Size = rs.getString("Size");
-                int Installs = rs.getInt("Installs");
-                String Type = rs.getString("Type");
-                int Price = rs.getInt("Price");
-                String Content_Rating = rs.getString("Content Rating");
-                String Genres = rs.getString("Genres");
-                String Last_Updated = rs.getString("Last Updated");
-                String Current_Ver = rs.getString("Current Ver");
-                String Android_Ver = rs.getString("Android Ver");
-
-//                if (Rating.equals(Rate)) {
-//                    playstore.add(new Playstore(App, Category, Rating, Reviews, Size, Installs, Type, Price, Content_Rating, Genres, Last_Updated, Current_Ver, Android_Ver));
-//
-//                } else {
-//                }
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(PlaystoreController.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                connection.close();
-                stm.close();
-
-            } catch (Exception e) {
-
-            }
-        }
-
-        return playstore;
-
-    }
-
-    @Override
     public ArrayList<Playstore> findByInstallsFree() {
 
         try {
@@ -303,10 +250,6 @@ public class PlaystoreService implements IPlaystoreService {
         return playstore;
     }
 
-    @Override
-    public ArrayList<Playstore> findAllReviews() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public ArrayList<Playstore> find10Reviews() {
