@@ -3,16 +3,26 @@ package com.demo;
 
 public class Reviews {
 
+private String App;
 private String Translate_Reviews;
 private String Sentiment;
 private double Sentiment_Polarity;
 private double Sentiment_Subjectivity;
 
-    public Reviews(String Translate_Reviews, String Sentiment, double Sentiment_Polarity, double Sentiment_Subjectivity) {
+    public Reviews(String App, String Translate_Reviews, String Sentiment, double Sentiment_Polarity, double Sentiment_Subjectivity) {
+        this.App = App;
         this.Translate_Reviews = Translate_Reviews;
         this.Sentiment = Sentiment;
         this.Sentiment_Polarity = Sentiment_Polarity;
         this.Sentiment_Subjectivity = Sentiment_Subjectivity;
+    }
+
+    public String getApp() {
+        return App;
+    }
+
+    public void setApp(String App) {
+        this.App = App;
     }
 
     public String getTranslate_Reviews() {

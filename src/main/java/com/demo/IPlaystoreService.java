@@ -37,4 +37,6 @@ public interface IPlaystoreService {
     public ArrayList<Playstore> findByRating2();
     
     public ArrayList<Playstore> findByRating1();
+    
+    public ArrayList<Reviews> findByReviewsAppname(String name);
 }
