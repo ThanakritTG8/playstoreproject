@@ -67,49 +67,49 @@ public class PlaystoreController {
 
         return playstoreService.find10Reviews();
     }
-    
+
     @RequestMapping(value = "/app/{name}", method = RequestMethod.GET)
     public ArrayList<Playstore> app(@PathVariable String name) {
 
         return playstoreService.findByAppname(name);
     }
-    
+
     @RequestMapping(value = "/app/reviews/{name}", method = RequestMethod.GET)
-    public ArrayList<Reviews> reviews(@PathVariable String name){
-    
+    public ArrayList<Reviews> reviews(@PathVariable String name) {
+
         return playstoreService.findByReviewsAppname(name);
     }
-    
+
     @RequestMapping(value = "/top10/free/{name}", method = RequestMethod.GET)
-    public ArrayList<Playstore> freetenname(@PathVariable String name){
-    
+    public ArrayList<Playstore> freetenname(@PathVariable String name) {
+
         return playstoreService.findByTop10Free(name);
     }
-    
+
     @RequestMapping(value = "/rating/5", method = RequestMethod.GET)
     public List<Playstore> rating5() {
 
         return playstoreService.findByRating5();
     }
-    
+
     @RequestMapping(value = "/rating/4", method = RequestMethod.GET)
     public List<Playstore> rating4() {
 
         return playstoreService.findByRating4();
     }
-    
+
     @RequestMapping(value = "/rating/3", method = RequestMethod.GET)
     public List<Playstore> rating3() {
 
         return playstoreService.findByRating3();
     }
-    
+
     @RequestMapping(value = "/rating/2", method = RequestMethod.GET)
     public List<Playstore> rating2() {
 
         return playstoreService.findByRating2();
     }
-    
+
     @RequestMapping(value = "/rating/1", method = RequestMethod.GET)
     public List<Playstore> rating1() {
 

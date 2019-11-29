@@ -13,6 +13,7 @@ public class PlaystoreService implements IPlaystoreService {
     private final ArrayList<Playstore> playstore;
     private final ArrayList<Reviews> reviews;
 
+
     Connection connection = null;
     Statement stm = null;
     String url = "jdbc:mysql://localhost/projectsoa?user=root&&password=my-secret-pw";
@@ -249,7 +250,6 @@ public class PlaystoreService implements IPlaystoreService {
 
         return playstore;
     }
-
 
     @Override
     public ArrayList<Playstore> find10Reviews() {
@@ -550,8 +550,8 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore"
-                    + "where Rating between 4 and 4.9"
+            String sql = "select * from googleplaystore "
+                    + "where Rating >= 4 "
                     + "order by Rating desc";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
@@ -597,8 +597,8 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore"
-                    + "where Rating between 3 and 3.9"
+            String sql = "select * from googleplaystore "
+                    + "where Rating >= 3 "
                     + "order by Rating desc";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
@@ -644,8 +644,8 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore"
-                    + "where Rating between 2 and 2.9"
+            String sql = "select * from googleplaystore "
+                    + "where Rating >= 2 "
                     + "order by Rating desc";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
@@ -691,8 +691,8 @@ public class PlaystoreService implements IPlaystoreService {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             stm = connection.createStatement();
-            String sql = "select * from googleplaystore"
-                    + "where Rating between 1 and 1.9"
+            String sql = "select * from googleplaystore "
+                    + "where Rating >= 1 "
                     + "order by Rating desc";
             ResultSet rs = stm.executeQuery(sql);
             playstore.clear();
@@ -774,5 +774,7 @@ public class PlaystoreService implements IPlaystoreService {
 
         return reviews;
     }
+
+    
 
 }
